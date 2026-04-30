@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fair Housing Statement | Resident Association Management</title>
+
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <meta name="description" content="Resident Association Management is committed to fair housing and equal opportunity. Read our full Fair Housing statement and policy." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.residentam.com/fair-housing" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{--red:#C8102E;--red-soft:#e08090;--red-mid:#c04060;--red-deep:#8b1428;--navy:#1B2A4A;--navy-deep:#0f1c3a;--green:#1a7a3c;--green-h:#156630}
+    [data-theme="dark"]{--bg:#07101c;--bg2:#080f1a;--bg-foot:#050c16;--bg-nav:rgba(7,16,28,0.96);--surface:rgba(255,255,255,0.025);--border:rgba(255,255,255,0.07);--border-acc:rgba(224,112,138,0.22);--text:#dde6f4;--text-sub:rgba(200,212,232,0.62);--text-muted:rgba(180,196,220,0.30);--accent-col:#d07888;--card-bg:rgba(255,255,255,0.025);--shadow:0 8px 40px rgba(0,0,0,0.5)}
+    [data-theme="light"]{--bg:#f4f7fc;--bg2:#fbfcfe;--bg-foot:#1B2A4A;--bg-nav:rgba(255,255,255,0.86);--surface:rgba(255,255,255,0.78);--border:rgba(192,64,96,0.12);--border-acc:rgba(192,64,96,0.20);--text:#0f1c3a;--text-sub:rgba(15,28,58,0.65);--text-muted:rgba(15,28,58,0.34);--accent-col:#c04060;--card-bg:#ffffff;--shadow:0 4px 24px rgba(192,64,96,0.10)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .35s,color .35s;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--bg-nav);box-shadow:0 2px 20px rgba(0,0,0,.14);backdrop-filter:blur(14px)}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+    .nav-logo img{height:38px;width:38px;object-fit:contain}
+    .nav-logo-text{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;line-height:1.25;color:var(--text)}
+    .nav-logo-text .driven{font-family:'Caveat',cursive;font-weight:700;font-size:1.35em;padding:0 3px;display:inline-block;transform:translateY(1px) rotate(-3deg)}
+    [data-theme="dark"] .nav-logo-text .driven{background:linear-gradient(135deg,#e08090 0%,#c04060 50%,#e08090 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    [data-theme="light"] .nav-logo-text .driven{background:linear-gradient(135deg,#8b1428 0%,#C8102E 50%,#8b1428 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-actions{display:flex;align-items:center;gap:9px}
+    .nav-link{font-size:.74rem;font-weight:600;letter-spacing:.03em;padding:7px 14px;border-radius:6px;border:1px solid var(--border-acc);color:var(--text-sub);background:transparent;transition:all .2s}
+    .nav-link:hover,.nav-link:focus,.nav-link:active{color:#fff;border-color:#c04060;background:#c04060;box-shadow:0 0 0 2px rgba(192,64,96,.15);transition:all .2s}
+    .theme-btn{width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+    @media(max-width:430px){.nav-logo-text{display:none};nav{padding:12px 16px}}
+
+    /* PAGE HERO */
+    .page-hero{
+      padding:120px 24px 60px;text-align:center;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(20,38,72,.9) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(120,20,40,.1) 0%, transparent 60%),
+        var(--bg);
+      position:relative;overflow:hidden;
+    }
+    [data-theme="light"] .page-hero{
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(210,220,245,.8) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(200,16,46,.05) 0%, transparent 60%),
+        linear-gradient(160deg,#dce8f8 0%,#eef2fa 100%);
+    }
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:46px 46px}
+    [data-theme="light"] .page-hero::before{background-image:radial-gradient(circle,rgba(27,42,74,.06) 1px,transparent 1px);background-size:28px 28px}
+    .page-hero-content{position:relative;z-index:2;max-width:680px;margin:0 auto}
+
+    .fh-icon-large{
+      width:88px;height:88px;margin:0 auto 24px;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:18px;
+      background:rgba(192,64,96,.08);
+      border:1px solid rgba(192,64,96,.2);
+    }
+    [data-theme="light"] .fh-icon-large{background:rgba(27,42,74,.06);border-color:rgba(27,42,74,.12)}
+    .fh-icon-large svg{width:54px;height:54px}
+    [data-theme="dark"] .fh-icon-large svg{color:#d07888}
+    [data-theme="light"] .fh-icon-large svg{color:#1B2A4A}
+
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:14px}
+    [data-theme="dark"] h1{background:linear-gradient(145deg,#e8eef8 0%,#dde6f4 55%,#e8a0b0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    [data-theme="light"] h1{background:linear-gradient(135deg,#0f1c3a 0%,#1B2A4A 40%,#8b1428 80%,#C8102E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .page-hero p.lead{font-size:1.05rem;color:var(--text-sub);max-width:560px;margin:0 auto;line-height:1.7}
+
+    /* CONTENT */
+    .content{flex:1;padding:60px 24px 80px;background:var(--bg)}
+    .content-wrap{max-width:760px;margin:0 auto}
+    .stmt-card{
+      background:var(--card-bg);border:1px solid var(--border);
+      border-radius:18px;padding:44px 40px;
+      box-shadow:var(--shadow);
+    }
+    @media(max-width:600px){.stmt-card{padding:28px 22px}}
+    .stmt-card h2{
+      font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;
+      color:var(--text);margin-bottom:14px;margin-top:32px;
+    }
+    .stmt-card h2:first-child{margin-top:0}
+    .stmt-card p{
+      font-size:.95rem;line-height:1.75;color:var(--text-sub);
+      margin-bottom:16px;
+    }
+    .stmt-card strong{color:var(--text)}
+    .protected-list{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:8px;margin:18px 0 24px;
+    }
+    .protected-item{
+      padding:10px 14px;border-radius:8px;
+      background:var(--surface);border:1px solid var(--border);
+      font-size:.85rem;color:var(--text);font-weight:500;
+      text-align:center;
+    }
+    .pledge-box{
+      margin-top:32px;padding:24px 28px;
+      border-radius:12px;
+      border:1px solid rgba(192,64,96,.25);
+      background:rgba(192,64,96,.05);
+    }
+    [data-theme="light"] .pledge-box{background:rgba(200,16,46,.04);border-color:rgba(200,16,46,.18)}
+    .pledge-box h3{
+      font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;
+      color:var(--accent-col);margin-bottom:10px;
+    }
+    .pledge-box p{font-size:.92rem;color:var(--text-sub);line-height:1.7;margin:0}
+
+    .ext-link{
+      display:inline-flex;align-items:center;gap:8px;
+      margin-top:14px;padding:11px 18px;
+      border-radius:8px;border:1px solid var(--border-acc);
+      color:var(--text);font-size:.85rem;font-weight:600;
+      transition:all .2s;
+    }
+    .ext-link:hover{background:var(--surface);border-color:var(--text-sub)}
+    .ext-link svg{width:14px;height:14px}
+
+    /* FOOTER */
+    footer{background:#050c16;color:rgba(200,212,232,.65);padding:36px 24px;border-top:1px solid rgba(255,255,255,.05);margin-top:auto}
+    [data-theme="light"] footer{color:rgba(255,255,255,.65)}
+    .footer-bottom{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:.74rem;color:rgba(200,212,232,.32)}
+    .footer-bottom a{color:inherit;transition:color .2s}
+    .footer-bottom a:hover{color:rgba(200,212,232,.7)}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .stmt-card{animation:fadeUp .6s ease}
+    .page-hero-content{animation:fadeUp .7s ease}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo" onclick="window.location='index.html'">
+      <img id="navLogo" src="logo-dark.png" alt="Home" onerror="this.style.display='none'" />
+      <div class="nav-logo-text">Resident <span class="driven">Driven</span> Association Management</div>
+    </div>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <a href="portal.html" class="nav-link">Resident Login</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="fh-icon-large">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <polygon points="100,30 30,90 50,90 50,170 150,170 150,90 170,90"
+                   fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/>
+          <rect x="70" y="105" width="60" height="10" fill="currentColor"/>
+          <rect x="70" y="130" width="60" height="10" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1>Equal Housing Opportunity</h1>
+      <p class="lead">Our Fair Housing pledge and statement of policy.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="content-wrap">
+      <div class="stmt-card">
+
+        <h2>Our Pledge</h2>
+        <p>Resident Association Management is <strong>fully committed to the principles of equal housing opportunity</strong>. We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing.</p>
+
+        <h2>Federal Protections</h2>
+        <p>The Fair Housing Act prohibits discrimination in the sale, rental, and financing of dwellings, and in other housing-related transactions, based on the following protected classes:</p>
+
+        <div class="protected-list">
+          <div class="protected-item">Race</div>
+          <div class="protected-item">Color</div>
+          <div class="protected-item">National Origin</div>
+          <div class="protected-item">Religion</div>
+          <div class="protected-item">Sex</div>
+          <div class="protected-item">Familial Status</div>
+          <div class="protected-item">Disability</div>
+        </div>
+
+        <p>In addition to federal protections, we honor and uphold all applicable state and local fair housing laws that may extend additional protections.</p>
+
+        <h2>Our Practices</h2>
+        <p>In every aspect of our community management work, we are committed to:</p>
+        <p>• Treating every homeowner, prospective homeowner, vendor, and visitor with dignity, fairness, and respect.<br/>
+        • Ensuring all communications, services, and decisions are free from discriminatory bias.<br/>
+        • Providing reasonable accommodations and modifications for residents with disabilities, in accordance with applicable laws.<br/>
+        • Maintaining accessible and inclusive community communications.<br/>
+        • Promptly investigating and addressing any complaints or concerns regarding fair housing.</p>
+
+        <h2>How to Report a Concern</h2>
+        <p>If you believe you have experienced housing discrimination, you may file a complaint with the U.S. Department of Housing and Urban Development (HUD), Office of Fair Housing and Equal Opportunity (FHEO).</p>
+
+        <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp" target="_blank" rel="noopener" class="ext-link">
+          Visit HUD Fair Housing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+
+        <div class="pledge-box">
+          <h3>The Equal Housing Opportunity Statement</h3>
+          <p>We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity throughout the Nation. We encourage and support an affirmative advertising and marketing program in which there are no barriers to obtaining housing because of race, color, religion, sex, handicap, familial status, or national origin.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Resident Association Management. All rights reserved.</span>
+      <span><a href="index.html" style="margin-right:14px">Home</a><a href="contact.html">Contact Us</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const html = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const navLogo = document.getElementById('navLogo');
+    function setTheme(t){
+      html.setAttribute('data-theme',t);
+      toggle.textContent = t==='light'?'☀️':'🌙';
+      if(navLogo) navLogo.src = 'logo-dark.png';
+    }
+    setTheme(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+    toggle.addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
+  </script>
+</body>
+</html>
