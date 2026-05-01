@@ -6,10 +6,9 @@
   <title>Resident Portal Login | Resident Association Management</title>
 
   <link rel="icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <meta name="description" content="Resident portal login for Resident Association Management. Access your community portal, pay dues, submit requests, and view documents." />
+  <meta name="description" content="Resident portal login for Resident Association Management." />
   <meta name="robots" content="noindex" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,239 +16,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root{--red:#C8102E;--red-soft:#e08090;--red-mid:#c04060;--red-deep:#8b1428;--navy:#1B2A4A;--navy-deep:#0f1c3a;--green:#1a7a3c}
-    [data-theme="dark"]{--bg:#07101c;--bg2:#080f1a;--bg-foot:#050c16;--bg-nav:rgba(7,16,28,0.96);--surface:rgba(255,255,255,0.025);--border:rgba(255,255,255,0.07);--border-acc:rgba(224,112,138,0.22);--text:#dde6f4;--text-sub:rgba(200,212,232,0.44);--text-muted:rgba(180,196,220,0.30);--accent-col:#d07888;--card-bg:rgba(255,255,255,0.025);--shadow:0 8px 40px rgba(0,0,0,0.5)}
-    [data-theme="light"]{--bg:#f4f7fc;--bg2:#fbfcfe;--bg-foot:#1B2A4A;--bg-nav:rgba(255,255,255,0.86);--surface:rgba(255,255,255,0.78);--border:rgba(192,64,96,0.12);--border-acc:rgba(192,64,96,0.20);--text:#0f1c3a;--text-sub:rgba(15,28,58,0.50);--text-muted:rgba(15,28,58,0.34);--accent-col:#c04060;--card-bg:#ffffff;--shadow:0 4px 24px rgba(192,64,96,0.10)}
+    :root{--red:#C8102E;--red-soft:#e08090;--red-mid:#c04060;--red-deep:#8b1428;--navy:#1B2A4A;--navy-deep:#0f1c3a}
+    [data-theme="dark"]{--bg:#07101c;--bg-nav:rgba(7,16,28,0.96);--surface:rgba(255,255,255,0.025);--border:rgba(255,255,255,0.07);--border-acc:rgba(224,112,138,0.22);--text:#dde6f4;--text-sub:rgba(200,212,232,0.44);--text-muted:rgba(180,196,220,0.30);--accent-col:#d07888;--card-bg:rgba(255,255,255,0.025);--shadow:0 8px 40px rgba(0,0,0,0.5)}
+    [data-theme="light"]{--bg:#f4f7fc;--bg-nav:rgba(255,255,255,0.86);--surface:rgba(255,255,255,0.78);--border:rgba(192,64,96,0.12);--border-acc:rgba(192,64,96,0.20);--text:#0f1c3a;--text-sub:rgba(15,28,58,0.50);--text-muted:rgba(15,28,58,0.34);--accent-col:#c04060;--card-bg:#ffffff;--shadow:0 4px 24px rgba(192,64,96,0.10)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .35s,color .35s;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
     a{color:inherit;text-decoration:none}
     button{cursor:pointer;border:none;background:none;font-family:inherit}
-
-    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--bg-nav);box-shadow:0 2px 20px rgba(0,0,0,.14);backdrop-filter:blur(14px)}
-    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
     .nav-logo img{height:38px;width:38px;object-fit:contain}
     .nav-logo-text{font-family:'Playfair Display',serif;font-size:.88rem;font-weight:700;line-height:1.25;color:var(--text)}
     .nav-actions{display:flex;align-items:center;gap:9px}
     .nav-link{font-size:.74rem;font-weight:600;letter-spacing:.03em;padding:7px 14px;border-radius:6px;border:1px solid var(--border-acc);color:var(--text-sub);background:transparent;transition:all .2s;display:inline-block}
-    .nav-link:hover,.nav-link:focus,.nav-link:active{color:#fff;border-color:#c04060;background:#c04060;box-shadow:0 0 0 2px rgba(192,64,96,.15);transition:all .2s}
+    .nav-link:hover{color:#fff;border-color:#c04060;background:#c04060}
     .nav-link.active{color:var(--text);border-color:var(--border);background:var(--surface)}
     .theme-btn{width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.9rem}
     @media(max-width:430px){.nav-logo-text{display:none};nav{padding:12px 16px}}
-
-    /* MAIN PORTAL AREA */
-    .portal-wrap{
-      flex:1;display:flex;align-items:center;justify-content:center;
-      padding:100px 24px 60px;
-      background:
-        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(20,38,72,.9) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(120,20,40,.1) 0%, transparent 60%),
-        var(--bg);
-      position:relative;overflow:hidden;
-    }
-    [data-theme="light"] .portal-wrap{
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(210,220,245,.8) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(200,16,46,.05) 0%, transparent 60%),
-        linear-gradient(160deg,#dce8f8 0%,#eef2fa 100%);
-    }
+    .portal-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(20,38,72,.9) 0%,transparent 70%),var(--bg);position:relative;overflow:hidden}
+    [data-theme="light"] .portal-wrap{background:radial-gradient(ellipse 80% 60% at 20% 20%,rgba(210,220,245,.8) 0%,transparent 65%),linear-gradient(160deg,#dce8f8 0%,#eef2fa 100%)}
     .portal-wrap::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:46px 46px}
     [data-theme="light"] .portal-wrap::before{background-image:radial-gradient(circle,rgba(27,42,74,.06) 1px,transparent 1px);background-size:28px 28px}
-
-    .portal-card{
-      position:relative;z-index:2;
-      width:100%;max-width:480px;
-      background:var(--card-bg);
-      border:1px solid var(--border);
-      border-radius:20px;padding:48px 40px;
-      box-shadow:var(--shadow);
-      text-align:center;
-    }
+    .portal-card{position:relative;z-index:2;width:100%;max-width:480px;background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:48px 40px;box-shadow:var(--shadow);text-align:center}
     @media(max-width:500px){.portal-card{padding:32px 22px}}
     .portal-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--red-mid),var(--red-deep))}
-
     .portal-logo{margin:0 auto 24px}
     .portal-logo img{height:64px;width:64px;object-fit:contain}
-
     .portal-card h1{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;margin-bottom:10px;line-height:1.15}
     [data-theme="dark"] .portal-card h1{background:linear-gradient(145deg,#e8eef8 0%,#e8a0b0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     [data-theme="light"] .portal-card h1{background:linear-gradient(135deg,#0f1c3a 0%,#8b1428 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
     .portal-card .sub{font-size:.9rem;color:var(--text-sub);margin-bottom:32px;line-height:1.6}
-
-    /* Coming soon badge */
-    .coming-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      border-radius:100px;padding:6px 18px;
-      font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-      margin-bottom:28px;
-      background:rgba(192,64,96,.1);
-      border:1px solid rgba(192,64,96,.25);
-      color:var(--red-mid);
-    }
-
-    /* Portal options */
+    .coming-badge{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:6px 18px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;background:rgba(192,64,96,.1);border:1px solid rgba(192,64,96,.25);color:var(--red-mid)}
     .portal-options{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
-    .portal-btn{
-      display:flex;align-items:center;gap:14px;
-      padding:16px 20px;border-radius:12px;
-      border:1px solid var(--border);
-      background:var(--surface);
-      transition:all .25s;text-align:left;
-      width:100%;
-    }
+    .portal-btn{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:12px;border:1px solid var(--border);background:var(--surface);transition:all .25s;text-align:left;width:100%}
     .portal-btn:hover{border-color:var(--red-mid);background:rgba(192,64,96,.06);transform:translateX(3px)}
-    .portal-btn-icon{
-      width:40px;height:40px;border-radius:9px;flex-shrink:0;
-      display:flex;align-items:center;justify-content:center;
-    }
+    .portal-btn-icon{width:40px;height:40px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
     [data-theme="dark"] .portal-btn-icon{background:rgba(192,64,96,.12);border:1px solid rgba(192,64,96,.2)}
     [data-theme="light"] .portal-btn-icon{background:rgba(27,42,74,.07);border:1px solid rgba(27,42,74,.12)}
-    .portal-btn-icon svg{width:18px;height:18px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    [data-theme="dark"] .portal-btn-icon svg{stroke:#c07080}
-    [data-theme="light"] .portal-btn-icon svg{stroke:#1B2A4A}
-    .portal-btn-text h3{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px}
-    .portal-btn-text p{font-size:.76rem;color:var(--text-muted)}
-    .portal-arrow{margin-left:auto;color:var(--text-muted);font-size:1rem;flex-shrink:0}
-
-    /* Placeholder notice */
-    .portal-notice{
-      padding:16px 18px;border-radius:10px;
-      border:1px solid var(--border-acc);
-      background:rgba(192,64,96,.05);
-      font-size:.82rem;color:var(--text-sub);
-      line-height:1.6;margin-bottom:24px;
-      text-align:left;
-    }
-    .portal-notice strong{color:var(--red-mid)}
-
-    .portal-divider{display:flex;align-items:center;gap:12px;margin:20px 0;font-size:.75rem;color:var(--text-muted)}
-    .portal-divider::before,.portal-divider::after{content:'';flex:1;height:1px;background:var(--border)}
-
-    .btn-contact{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      width:100%;padding:13px;border-radius:9px;
-      background:var(--navy);color:#fff;
-      font-weight:700;font-size:.88rem;
-      transition:background .2s;
-    }
-    [data-theme="dark"] .btn-contact{background:rgba(27,42,74,.8);border:1px solid rgba(255,255,255,.09)}
-    .btn-contact:hover{background:var(--navy-deep)}
-
-    /* FOOTER */
-    footer{background:#050c16;color:rgba(200,212,232,.65);padding:28px 24px;border-top:1px solid rgba(255,255,255,.05)}
-    [data-theme="light"] footer{color:rgba(255,255,255,.65)}
-    .footer-bottom{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:.74rem;color:rgba(200,212,232,.22)}
-    .footer-bottom a{color:inherit;transition:color .2s}
-    .footer-bottom a:hover{color:rgba(200,212,232,.5)}
-
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-    .portal-card{animation:fadeUp .6s ease}
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo" style="cursor:pointer" onclick="window.location='index.html'">
-      <img id="navLogo" src="logo-dark.png" alt="RAM Logo" onerror="this.style.display='none'" />
-      <div class="nav-logo-text">Resident Association Management</div>
-    </div>
-    <div class="nav-actions">
-      <a href="contact.html" class="nav-link">Contact Us</a>
-      <a href="portal.html" class="nav-link active">Resident Login</a>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
-    </div>
-  </nav>
-
-  <!-- PORTAL CARD -->
-  <div class="portal-wrap">
-    <div class="portal-card">
-
-      <div class="portal-logo">
-        <img id="portalLogo" src="logo-dark.png" alt="RAM Logo" onerror="this.style.display='none'" />
-      </div>
-
-      <div class="coming-badge">🔒 Resident Portal</div>
-
-      <h1>Welcome Back,<br />Resident</h1>
-      <p class="sub">Access your community portal to pay dues, submit maintenance requests, view documents, and stay connected.</p>
-
-      <div class="portal-notice">
-        <strong>Portal Coming Soon</strong><br />
-        We are currently setting up your community portal. Once activated, you will receive login credentials via email. In the meantime, please contact us directly for any assistance.
-      </div>
-
-      <div class="portal-options">
-        <button class="portal-btn" onclick="window.location='contact.html'">
-          <div class="portal-btn-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="portal-btn-text">
-            <h3>Submit a Request</h3>
-            <p>Maintenance, questions, or concerns</p>
-          </div>
-          <div class="portal-arrow">→</div>
-        </button>
-
-        <button class="portal-btn" onclick="window.location='contact.html'">
-          <div class="portal-btn-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="portal-btn-text">
-            <h3>Contact Management</h3>
-            <p>Submit a request or inquiry</p>
-          </div>
-          <div class="portal-arrow">→</div>
-        </button>
-
-        <button class="portal-btn" onclick="window.location='index.html'">
-          <div class="portal-btn-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="portal-btn-text">
-            <h3>Return to Homepage</h3>
-            <p>Learn about our services</p>
-          </div>
-          <div class="portal-arrow">→</div>
-        </button>
-      </div>
-
-      <div class="portal-divider">need help?</div>
-
-      <a href="contact.html" class="btn-contact">
-        Submit a Request →
-      </a>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Resident Association Management. All rights reserved.</span>
-      <span>
-        <a href="portal.html" style="margin-right:14px">Board Login</a>
-        <a href="support.html" style="margin-right:14px">Request Support</a>
-        <a href="contact.html">Contact Us</a>
-      </span>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const html = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const logos = [document.getElementById('navLogo'), document.getElementById('footLogo'), document.getElementById('portalLogo')];
-    function setTheme(t) {
-      html.setAttribute('data-theme',t);
-      toggle.textContent = t==='light'?'☀️':'🌙';
-      const s = 'logo-dark.png';
-      logos.forEach(l=>{ if(l) l.src=s; });
-    }
-    setTheme(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-    toggle.addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
-  </script>
-</body>
-</html>
+    .portal-
